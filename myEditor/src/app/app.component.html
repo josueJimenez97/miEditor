@@ -1,18 +1,69 @@
-<ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
-<hr>
+<h1>MI EDITOR</h1>
 <div class="row">
-    <div class="col-2">
+  <div class="col-2">
+
+  </div>
+  <div class="col-lg-8 col-md-12">
+    <ul class="list-group list-group-horizontal row">
+      <li class="list-group-item pt-2 col-2">
+        <div class="row ml-2 mt-1">
+          <div class="col-5">
+            <div class="dropdown">
+              <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                <button type="button" class="btn" disabled><i class="fa fa-text-height" aria-hidden="true"></i></button>
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                </button>
+                <div class="dropdown-menu">
+                  <a id="n1" class="dropdown-item" href="#" (click)="hizoClick('n1')">1</a>
+                  <a id="n2" class="dropdown-item" href="#" (click)="hizoClick('n2')">2</a>  
+                  <a id="n3" class="dropdown-item" href="#" (click)="hizoClick('n3')">3</a>
+                  <a id="n4" class="dropdown-item" href="#" (click)="hizoClick('n4')">4</a>
+                  <a id="n5" class="dropdown-item" href="#" (click)="hizoClick('n5')">5</a>
+                  <a id="n6" class="dropdown-item" href="#" (click)="hizoClick('n6')">6</a>
+                  <a id="n7" class="dropdown-item" href="#" (click)="hizoClick('n7')">7</a>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-6 mx-1">
+            <input id="caja" class="form-control form-control-sm" type="text" value="{{tam}}">
+          </div>
+
+        </div>
+
+      </li>
+
+      <li class="list-group-item pt-2 col-2" id="tipo">
+        <a [class.seleccionado]="boldOn" class="btn-editor" id="bold" (click)="bold()"><i class="fa fa-bold" aria-hidden="true"
+            ></i></a>
+        <a [class.seleccionado]="italicOn" class="btn-editor" id="italic" (click)="italic()"><i class="fa fa-italic" aria-hidden="true"
+            ></i></a>
+        <a [class.seleccionado]="ordenarOn" class="btn-editor mr-1" id="order" (click)="ordenarNumericamente()"><i class="fa fa-list-ol" aria-hidden="true" ></i></a>
+        <a [style.background]="colorActual" [colorPicker]="colorActual" (colorPickerChange)="seleccionColor($event)"
+        class="btn py-2" id="color"></a>
+      </li>
+      <li class="list-group-item col-3 pt-2">
+        <a [class.seleccionado]="justify==1" class="btn-editor"  (click)="alignLeft()">  
+          <i class="fa fa-align-left" aria-hidden="true"></i>
+        </a>
+        <a [class.seleccionado]="justify==2" class="btn-editor" (click)="alignCenter()">  
+          <i class="fa fa-align-center" aria-hidden="true" ></i>
+        </a>
+        <a [class.seleccionado]="justify==4" class="btn-editor" (click)="alignRight()">  
+          <i class="fa fa-align-right" aria-hidden="true" ></i>
+        </a>
+        <a [class.seleccionado]="justify==3" class="btn-editor" (click)="alignFull()">  
+          <i class="fa fa-align-justify" aria-hidden="true" ></i>
+        </a>
+        <a class="btn-editor" (click)="insertarImagen()">  
+        <i class="fa fa-picture-o" aria-hidden="true" ></i>
+        </a>
+      </li>
+    </ul>
+    <div id="miDiv" class="border border-primary py-3" contenteditable="true">
 
     </div>
-    <div class="col-8">
-        <ul class="list-group list-group-horizontal">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-        </ul>
-        <div id="textA" class="border border-primary p-4" contenteditable="true"></div>
-    </div>
+
+  </div>
 </div>
-
-
-<p id="resultado"></p>
